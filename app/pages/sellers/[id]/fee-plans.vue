@@ -38,8 +38,9 @@
           <h2 class="text-lg font-semibold text-gray-900 mb-6">
             Crédito Online <span class="text-gray-600 font-normal">| Recebimento em <span class="font-semibold">{{ creditReceiptDays }}</span></span>
           </h2>
-          <div class="overflow-x-auto">
-            <table class="w-full">
+          <div class="table-scroll-container">
+            <div class="table-wrapper">
+              <table class="w-full">
               <thead>
                 <tr>
                   <th class="px-4 py-3 text-center text-sm font-semibold text-gray-900 border-b border-gray-300"></th>
@@ -56,7 +57,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(_, index) in maxCreditInstallments" :key="index">
+                <tr v-for="(_, index) in maxCreditInstallments" :key="index" :class="{ 'bg-gray-100': index % 2 === 1 }">
                   <td class="px-4 py-4 text-sm font-semibold text-gray-900 border-b border-gray-200">
                     {{ index === 0 ? 'À vista' : `${index + 1}x` }}
                   </td>
@@ -64,13 +65,13 @@
                     v-for="brand in onlineBrands"
                     :key="brand"
                     class="px-4 py-4 text-center text-sm font-medium text-gray-900 border-b border-gray-200"
-                    :class="index % 2 === 0 ? 'bg-gray-50' : 'bg-white'"
                   >
                     {{ getOnlineCreditFee(brand, index) }}
                   </td>
                 </tr>
               </tbody>
             </table>
+            </div>
           </div>
         </div>
 
@@ -78,8 +79,9 @@
           <h2 class="text-lg font-semibold text-gray-900 mb-6">
             Crédito Físico <span class="text-gray-600 font-normal">| Recebimento em <span class="font-semibold">{{ creditReceiptDays }}</span></span>
           </h2>
-          <div class="overflow-x-auto">
-            <table class="w-full">
+          <div class="table-scroll-container">
+            <div class="table-wrapper">
+              <table class="w-full">
               <thead>
                 <tr>
                   <th class="px-4 py-3 text-center text-sm font-semibold text-gray-900 border-b border-gray-300"></th>
@@ -96,7 +98,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(_, index) in maxCreditInstallments" :key="index">
+                <tr v-for="(_, index) in maxCreditInstallments" :key="index" :class="{ 'bg-gray-100': index % 2 === 1 }">
                   <td class="px-4 py-4 text-sm font-semibold text-gray-900 border-b border-gray-200">
                     {{ index === 0 ? 'À vista' : `${index + 1}x` }}
                   </td>
@@ -104,13 +106,13 @@
                     v-for="brand in chipBrands"
                     :key="brand"
                     class="px-4 py-4 text-center text-sm font-medium text-gray-900 border-b border-gray-200"
-                    :class="index % 2 === 0 ? 'bg-gray-50' : 'bg-white'"
                   >
                     {{ getChipCreditFee(brand, index) }}
                   </td>
                 </tr>
               </tbody>
             </table>
+            </div>
           </div>
         </div>
 
@@ -118,8 +120,9 @@
           <h2 class="text-lg font-semibold text-gray-900 mb-6">
             Débito <span class="text-gray-600 font-normal">| Recebimento em <span class="font-semibold">1 dia</span></span>
           </h2>
-          <div class="overflow-x-auto">
-            <table class="w-full">
+          <div class="table-scroll-container">
+            <div class="table-wrapper">
+              <table class="w-full">
               <thead>
                 <tr>
                   <th class="px-4 py-3 text-center text-sm font-semibold text-gray-900 border-b border-gray-300"></th>
@@ -136,18 +139,19 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                <tr class="bg-gray-100">
                   <td class="px-4 py-4 text-sm font-semibold text-gray-900 border-b border-gray-200">À vista</td>
                   <td
                     v-for="brand in debitBrands"
                     :key="brand"
-                    class="px-4 py-4 text-center text-sm font-medium text-gray-900 border-b border-gray-200 bg-gray-50"
+                    class="px-4 py-4 text-center text-sm font-medium text-gray-900 border-b border-gray-200"
                   >
                     {{ getDebitFee(brand) }}
                   </td>
                 </tr>
               </tbody>
             </table>
+            </div>
           </div>
         </div>
       </div>
