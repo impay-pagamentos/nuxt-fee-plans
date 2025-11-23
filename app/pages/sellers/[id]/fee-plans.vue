@@ -1,6 +1,6 @@
 <template>
   <div class="min-h-screen bg-white">
-    <div class="max-w-4xl mx-auto px-6 py-12">
+    <div class="max-w-4xl mx-auto p-6">
       <div v-if="isLoading" class="space-y-6">
         <div v-for="i in 5" :key="i" class="bg-gray-100 rounded p-6 animate-pulse">
           <div class="h-6 bg-gray-300 rounded w-1/3 mb-4"></div>
@@ -19,26 +19,26 @@
         </button>
       </div>
 
-      <div v-else-if="salesPlan" class="space-y-8">
-        <div class="border-b border-gray-200 pb-8">
-          <h2 class="text-lg font-semibold text-gray-900 mb-2">
+      <div v-else-if="salesPlan" class="space-y-5">
+        <div class="border-b border-gray-200 pb-5">
+          <h2 class="text-lg font-semibold text-gray-900 mb-2 text-center">
             Pix <span class="text-gray-600 font-normal">| Recebimento em <span class="font-semibold">1 dia</span></span>
           </h2>
-          <p class="text-lg font-semibold text-gray-900">Taxa: {{ formatPercent(salesPlan.pix.percent_amount) }}</p>
+          <p class="text-lg font-semibold text-gray-900 text-center"><span class="font-normal">Taxa:</span> {{ formatPercent(salesPlan.pix.percent_amount) }}</p>
         </div>
 
-        <div class="border-b border-gray-200 pb-8">
-          <h2 class="text-lg font-semibold text-gray-900 mb-2">
+        <div class="border-b border-gray-200 pb-5">
+          <h2 class="text-lg font-semibold text-gray-900 mb-2 text-center">
             Boleto <span class="text-gray-600 font-normal">| Recebimento em <span class="font-semibold">1 dia</span></span>
           </h2>
-          <p class="text-lg font-semibold text-gray-900">Tarifa: {{ formatCurrency(salesPlan.boleto.dollar_amount) }}</p>
+          <p class="text-lg font-semibold text-gray-900 text-center"><span class="font-normal">Tarifa:</span> {{ formatCurrency(salesPlan.boleto.dollar_amount) }}</p>
         </div>
 
         <div>
-          <h2 class="text-lg font-semibold text-gray-900 mb-6">
+          <h2 class="text-lg font-semibold text-gray-900 mb-6 text-center">
             Crédito Online <span class="text-gray-600 font-normal">| Recebimento em <span class="font-semibold">{{ creditReceiptDays }}</span></span>
           </h2>
-          <div class="table-scroll-container overflow-x-auto">
+          <div class="table-scroll-container max-h-[600px] overflow-y-auto border border-gray-200 rounded">
             <div class="table-wrapper">
               <table class="w-full">
               <thead class="sticky top-0 z-10 bg-white">
@@ -52,7 +52,7 @@
                         class="h-full w-auto"
                       />
                     </div>
-                    <div v-else class="text-xs font-medium text-gray-600">Outras</div>
+                    <div v-else class="text-xs font-bold text-gray-600">Outras</div>
                   </th>
                 </tr>
               </thead>
@@ -76,10 +76,10 @@
         </div>
 
         <div>
-          <h2 class="text-lg font-semibold text-gray-900 mb-6">
+          <h2 class="text-lg font-semibold text-gray-900 mb-6 text-center">
             Crédito Físico <span class="text-gray-600 font-normal">| Recebimento em <span class="font-semibold">{{ creditReceiptDays }}</span></span>
           </h2>
-          <div class="table-scroll-container overflow-x-auto">
+          <div class="table-scroll-container max-h-[600px] overflow-y-auto border border-gray-200 rounded">
             <div class="table-wrapper">
               <table class="w-full">
               <thead class="sticky top-0 z-10 bg-white">
@@ -93,7 +93,7 @@
                         class="h-full w-auto"
                       />
                     </div>
-                    <div v-else class="text-xs font-medium text-gray-600">Outras</div>
+                    <div v-else class="text-xs font-bold text-gray-600">Outras</div>
                   </th>
                 </tr>
               </thead>
@@ -117,10 +117,10 @@
         </div>
 
         <div>
-          <h2 class="text-lg font-semibold text-gray-900 mb-6">
+          <h2 class="text-lg font-semibold text-gray-900 mb-6 text-center">
             Débito <span class="text-gray-600 font-normal">| Recebimento em <span class="font-semibold">1 dia</span></span>
           </h2>
-          <div class="table-scroll-container overflow-x-auto">
+          <div class="table-scroll-container max-h-[600px] overflow-y-auto border border-gray-200 rounded">
             <div class="table-wrapper">
               <table class="w-full">
               <thead class="sticky top-0 z-10 bg-white">
@@ -134,7 +134,7 @@
                         class="h-full w-auto"
                       />
                     </div>
-                    <div v-else class="text-xs font-medium text-gray-600">Outras</div>
+                    <div v-else class="text-xs font-bold text-gray-600">Outras</div>
                   </th>
                 </tr>
               </thead>
