@@ -9,8 +9,7 @@
       </div>
 
       <div v-else-if="error" class="bg-red-50 border border-red-200 rounded-lg p-8 text-center">
-        <p class="text-red-800 font-medium mb-2">Erro ao carregar o plano de vendas</p>
-        <p class="text-red-600 text-sm mb-4">{{ error }}</p>
+        <p class="text-red-800 font-medium mb-4 text-lg">Opss. Não conseguimos carregar o plano de taxas</p>
         <button
           @click="fetchSalesPlan"
           class="inline-block bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg transition"
